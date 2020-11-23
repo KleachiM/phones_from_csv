@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Телефон{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1>Телефон</h1>
+        </div>
+        <div class="content">
+            <h5><font color="blue">{{ name }}</font></h5>
+            <p><font size="3" face="arial">Стоимость: {{ price }}</p>
+            <p>Дата выпуска: {{ release_date }}</p>
+            {% if lte_exists %}
+                {% cycle 'есть' as lte silent %}
+            {% else %}
+                {% cycle 'нет' as lte silent %}
+            {% endif %}
+            <p>Наличие lte: {{ lte }}</p>
+            <img src={{ image }} width=15% height=15%>
+        </div>
+    </div>
+{% endblock %}
